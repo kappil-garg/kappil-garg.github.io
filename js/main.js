@@ -1,11 +1,3 @@
-/* Fetch current year for footer */
-document.addEventListener("DOMContentLoaded", () => {
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-});
-
 /* Theme Toggle (Light/Dark) */
 const themeToggle = document.getElementById('themeToggle');
 const rootElement = document.documentElement;
@@ -29,17 +21,22 @@ function initializeTheme() {
   }
 }
 
-themeToggle.addEventListener('click', toggleTheme);
-
 /* Initialize Everything */
 document.addEventListener('DOMContentLoaded', () => {
-  initializeTheme();
-  setTimeout(() => {
-    document.body.classList.add('loaded');
-  }, 100);
-});
 
-/* Error Handling */
+  // Set current year in footer
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+  
+  // Initialize theme
+  initializeTheme();
+  
+  // Add theme toggle event listener
+  themeToggle.addEventListener('click', toggleTheme);
+  
+});/* Error Handling */
 window.addEventListener('error', (e) => {
   console.error('Portfolio error:', e.error);
 });
