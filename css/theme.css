@@ -1,0 +1,111 @@
+/* ===== Theme Configuration ===== */
+
+:root {
+  /* Light Theme Base Colors */
+  --color-slate-50: rgba(248, 250, 252, 1);
+  --color-slate-100: rgba(241, 245, 249, 1);
+  --color-slate-400: rgba(148, 163, 184, 1);
+  --color-slate-600: rgba(71, 85, 105, 1);
+  --color-slate-900: rgba(15, 23, 42, 1);
+
+  /* Dark Theme Base Colors */
+  --color-dark-100: rgba(11, 15, 25, 1);
+  --color-dark-200: rgba(15, 20, 30, 1);
+
+  /* Teal Accent Colors */
+  --color-teal-300: rgba(94, 234, 212, 1);
+  --color-teal-400: rgba(45, 212, 191, 1);
+  --color-teal-500: rgba(20, 184, 166, 1);
+  --color-teal-light: rgba(56, 189, 168, 1);
+
+  /* RGB Values for Opacity */
+  --color-teal-500-rgb: 20, 184, 166;
+  --color-teal-400-rgb: 45, 212, 191;
+  --color-teal-300-rgb: 94, 234, 212;
+  --color-slate-400-rgb: 148, 163, 184;
+  --color-white-rgb: 255, 255, 255;
+  --color-black-rgb: 0, 0, 0;
+
+  /* Light Theme Semantic Colors */
+  --color-background: var(--color-slate-50);
+  --color-surface: rgba(var(--color-white-rgb), 1);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-600);
+  --color-primary: var(--color-teal-light);
+  --color-primary-hover: var(--color-teal-500);
+  --color-border: rgba(var(--color-slate-400-rgb), 0.2);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.3);
+
+  /* Z-Index Scale */
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+
+  /* Typography */
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --line-height: 1.5;
+
+  /* Spacing Scale */
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-30: 30px;
+  --space-32: 32px;
+
+  /* Animation & Transitions */
+  --duration-normal: 250ms;
+  --duration-slow: 4000ms;
+  --duration-medium: 3000ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Theme Override */
+[data-color-scheme="dark"] {
+  --color-primary: var(--color-teal-400);
+  --color-primary-hover: var(--color-teal-300);
+  --color-background: var(--color-dark-100);
+  --color-surface: var(--color-dark-200);
+  --color-text: var(--color-slate-100);
+  --color-text-secondary: var(--color-slate-400);
+  --color-border: rgba(var(--color-slate-400-rgb), 0.2);
+  --color-focus-ring: rgba(var(--color-teal-400-rgb), 0.3);
+}
+
+/* Dark Theme Specific Styles */
+[data-color-scheme="dark"] .gradient-name {
+  background: linear-gradient(135deg,
+      #ffffff 0%,
+      #e0f2fe 25%,
+      #b3e5fc 50%,
+      #81d4fa 75%,
+      #4fc3f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300% 300%;
+  animation: gradient-shift var(--duration-slow) var(--ease-standard) infinite;
+  filter: drop-shadow(0 2px 8px rgba(var(--color-white-rgb), 0.6));
+}
+
+[data-color-scheme="dark"] .hero-tagline {
+  text-shadow: 0 0 10px rgba(var(--color-teal-300-rgb), 0.4);
+  animation: tagline-glow-dark var(--duration-medium) var(--ease-standard) infinite alternate;
+}
+
+[data-color-scheme="dark"] .social-icons a {
+  background: var(--color-surface);
+  border-color: rgba(var(--color-slate-400-rgb), 0.3);
+  box-shadow: 0 2px 8px rgba(var(--color-black-rgb), 0.3);
+}
+
+[data-color-scheme="dark"] .social-icons a:hover {
+  box-shadow: 0 4px 16px rgba(var(--color-teal-400-rgb), 0.4);
+}

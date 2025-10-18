@@ -1,0 +1,28 @@
+/* ===== Print Styles ===== */
+
+@media print {
+  * {
+    background: transparent;
+    color: black;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  body {
+    background: white;
+  }
+
+  #particles-js,
+  .theme-toggle-container {
+    display: none;
+  }
+
+  .footer {
+    position: static;
+  }
+
+  .page-content {
+    padding: 0;
+    min-height: auto;
+  }
+}

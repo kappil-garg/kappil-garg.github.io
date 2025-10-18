@@ -1,59 +1,23 @@
-// Cache DOM elements
-const elements = {
-    yearSpan: null,
-    themeToggle: null,
-    rootElement: document.documentElement,
-    body: document.body
-};
+const rootElement = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
 
-// Theme management
-const themeManager = {
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme-preference');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+  rootElement.setAttribute('data-color-scheme', theme);
+}
 
-    getSystemPreference() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    },
+function toggleTheme() {
+  const currentTheme = rootElement.getAttribute('data-color-scheme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  rootElement.setAttribute('data-color-scheme', newTheme);
+  localStorage.setItem('theme-preference', newTheme);
+}
 
-    getCurrentScheme() {
-        return elements.rootElement.getAttribute('data-color-scheme') || this.getSystemPreference();
-    },
-
-    setScheme(scheme) {
-        elements.rootElement.setAttribute('data-color-scheme', scheme);
-        localStorage.setItem('theme-preference', scheme);
-    },
-
-    toggle() {
-        const currentScheme = this.getCurrentScheme();
-        const newScheme = currentScheme === 'dark' ? 'light' : 'dark';
-        this.setScheme(newScheme);
-    },
-
-    initialize() {
-        const savedTheme = localStorage.getItem('theme-preference');
-        const scheme = savedTheme || this.getSystemPreference();
-        this.setScheme(scheme);
-    }
-
-};
-
-// Initialize everything when DOM is ready
-document.addEventListener("DOMContentLoaded", () => {
-
-    themeManager.initialize();
-
-    // Set current year in footer
-    elements.yearSpan = document.getElementById("year");
-    if (elements.yearSpan) {
-        elements.yearSpan.textContent = new Date().getFullYear();
-    }
-
-    // Setup theme toggle
-    elements.themeToggle = document.getElementById('themeToggle');
-    if (elements.themeToggle) {
-        elements.themeToggle.addEventListener('click', () => themeManager.toggle());
-    }
-
-    // Add loaded class to body for animations
-    elements.body.classList.add('loaded');
-
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
 });
