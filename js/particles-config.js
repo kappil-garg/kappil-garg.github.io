@@ -18,7 +18,7 @@ function initParticles() {
         "type": "circle"
       },
       "opacity": {
-        "value": 0.4,
+        "value": window.innerWidth < 768 ? 0.6 : 0.4,
         "random": false,
         "anim": {
           "enable": false,
@@ -41,8 +41,8 @@ function initParticles() {
         "enable": true,
         "distance": 150,
         "color": isDarkMode ? "#5eead4" : "#38b2ac",
-        "opacity": 0.4,
-        "width": 1
+        "opacity": window.innerWidth < 768 ? 0.6 : 0.4,
+        "width": window.innerWidth < 768 ? 1.5 : 1
       },
       "move": {
         "enable": true,

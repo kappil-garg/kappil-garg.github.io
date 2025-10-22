@@ -2,13 +2,13 @@
 
 @media (max-width: 768px) {
   #particles-js {
-    opacity: 0.4;
+    opacity: 0.7;
   }
 }
 
 @media (max-width: 480px) {
   #particles-js {
-    opacity: 0.3;
+    opacity: 0.65;
   }
 }
 
@@ -161,6 +161,8 @@
     width: 44px;
     height: 44px;
     font-size: 1.1rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .nav-container {
@@ -246,6 +248,8 @@
     width: 40px;
     height: 40px;
     font-size: 1rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
   .profile-pic {
@@ -315,6 +319,8 @@
     width: 36px;
     height: 36px;
     font-size: 0.9rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
   .page-content {
@@ -366,6 +372,8 @@
     width: 44px;
     height: 44px;
     font-size: 1.1rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .hero-description {
@@ -397,5 +405,29 @@
 
   #particles-js {
     opacity: 0.2;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .gradient-name {
+    animation: none !important;
+  }
+
+  .hero-tagline {
+    animation: none !important;
+  }
+
+  .profile-pic {
+    animation: none !important;
+  }
+
+  .profile-pic::after {
+    animation: none !important;
   }
 }

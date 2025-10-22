@@ -4,10 +4,13 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(var(--color-white-rgb), 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(var(--color-slate-400-rgb), 0.1);
   z-index: var(--z-index-fixed);
   transition: all var(--duration-normal) var(--ease-standard);
+  box-shadow: 0 4px 20px rgba(var(--color-black-rgb), 0.05);
 }
 
 .nav-container {
@@ -177,6 +180,26 @@
   animation: profile-pulse var(--duration-slow) var(--ease-standard) infinite;
 }
 
+.profile-pic::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--color-white-rgb), 0.4),
+    transparent
+  );
+  transition: left 0.5s;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: shimmer 3s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
 .profile-pic::before {
   content: '';
   position: absolute;
@@ -202,6 +225,11 @@
     0 0 0 8px rgba(var(--color-primary-hover), 0.1);
   filter: brightness(1.05) saturate(1.1);
   animation-play-state: paused;
+}
+
+.profile-pic:hover::after {
+  left: 100%;
+  animation-play-state: running;
 }
 
 .profile-pic:hover::before {
@@ -277,21 +305,27 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: var(--color-surface);
-  border: 2px solid var(--color-border);
+  background: linear-gradient(135deg, rgba(var(--color-white-rgb), 0.9), rgba(var(--color-slate-50-rgb), 0.8));
+  border: 2px solid rgba(var(--color-slate-400-rgb), 0.2);
   border-radius: 12px;
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: transform var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard);
-  box-shadow: 0 2px 8px rgba(var(--color-black-rgb), 0.1);
+  transition: all var(--duration-normal) var(--ease-standard);
+  box-shadow: 0 4px 12px rgba(var(--color-black-rgb), 0.08),
+    0 2px 4px rgba(var(--color-black-rgb), 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 }
 
 .social-icons a:hover {
-  transform: translateY(-2px);
-  background: var(--color-primary);
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   border-color: var(--color-primary);
   color: white;
-  box-shadow: 0 4px 16px rgba(var(--color-teal-500-rgb), 0.3);
+  box-shadow: 0 8px 25px rgba(var(--color-teal-500-rgb), 0.4),
+    0 4px 12px rgba(var(--color-black-rgb), 0.15);
 }
 
 .social-icons a:focus {
@@ -338,8 +372,10 @@
 }
 
 .footer {
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  background: rgba(var(--color-white-rgb), 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(var(--color-slate-400-rgb), 0.1);
   padding: var(--space-12) 0;
   text-align: center;
   position: fixed;
@@ -347,6 +383,7 @@
   left: 0;
   right: 0;
   z-index: var(--z-index-sticky);
+  box-shadow: 0 -4px 20px rgba(var(--color-black-rgb), 0.05);
 }
 
 .footer p {

@@ -23,8 +23,14 @@
   --color-teal-400-rgb: 45, 212, 191;
   --color-teal-300-rgb: 94, 234, 212;
   --color-slate-400-rgb: 148, 163, 184;
+  --color-slate-600-rgb: 71, 85, 105;
+  --color-slate-900-rgb: 15, 23, 42;
+  --color-slate-50-rgb: 248, 250, 252;
+  --color-slate-100-rgb: 241, 245, 249;
   --color-white-rgb: 255, 255, 255;
   --color-black-rgb: 0, 0, 0;
+  --color-dark-100-rgb: 11, 15, 25;
+  --color-dark-200-rgb: 15, 20, 30;
 
   /* Light Theme Semantic Colors */
   --color-background: var(--color-slate-50);
@@ -100,10 +106,23 @@
   animation: tagline-glow-dark var(--duration-medium) var(--ease-standard) infinite alternate;
 }
 
+[data-color-scheme="dark"] .navbar {
+  background: rgba(var(--color-dark-100-rgb), 0.8);
+  border-bottom: 1px solid rgba(var(--color-slate-400-rgb), 0.1);
+  box-shadow: 0 4px 20px rgba(var(--color-black-rgb), 0.2);
+}
+
+[data-color-scheme="dark"] .footer {
+  background: rgba(var(--color-dark-100-rgb), 0.8);
+  border-top: 1px solid rgba(var(--color-slate-400-rgb), 0.1);
+  box-shadow: 0 -4px 20px rgba(var(--color-black-rgb), 0.2);
+}
+
 [data-color-scheme="dark"] .social-icons a {
-  background: var(--color-surface);
+  background: linear-gradient(135deg, rgba(var(--color-dark-200-rgb), 0.9), rgba(var(--color-dark-100-rgb), 0.8));
   border-color: rgba(var(--color-slate-400-rgb), 0.3);
-  box-shadow: 0 2px 8px rgba(var(--color-black-rgb), 0.3);
+  box-shadow: 0 4px 12px rgba(var(--color-black-rgb), 0.3),
+    0 2px 4px rgba(var(--color-black-rgb), 0.2);
 }
 
 [data-color-scheme="dark"] .social-icons a:hover {
